@@ -3,9 +3,9 @@ import {Header} from "../component/Header";
 import classes from "./styles/home.module.scss";
 import {CreateActionButton} from "../component/CreateActionButton";
 import Product from "../component/products/Product";
-import {CalculatorWrapper} from "../component/calculator/CalculatorWrapper";
-import {Calculator} from "../component/calculator/Calculator";
 import {Box} from "../component/box/Box";
+import {TractionLeftCard, TractionRightCard} from "../component/traction/TrackionCards";
+import {Footer} from "../component/footer/Footer";
 
 
 const HomeLayout:FC = () => {
@@ -61,15 +61,71 @@ const HomeLayout:FC = () => {
 
                 </section>
 
-                <section className={`box-border flex flex-col justify-center items-start h-full px-4 pt-4`}>
-                    <div className={`text-left mt-8 ml-5 bg-red-400 py-3 px-2`}>
+                {/** section for testimonies */}
+                <section className={`box-border flex flex-col justify-center items-start h-full px-4 pt-4 bg-gray-100`}>
+                    <div className={`text-left mt-8 ml-5 py-3 px-2`}>
                         <h3 className={`text-l-blue tracking-wider capitalize font-cab-extra-bold text-3xl md:text-5xl lg:text-7xl font-bold  `}>
                             Don’t Take Our <span className={`text-l-red`}>Word</span> For It
                         </h3>
                         <p className={`font-cab-medium text-l-blue text-base mt-3 ml-1`}>Listen to testimonials from Ardilla users building wealth</p>
                     </div>
+                    <div>
+
+                    </div>
                 </section>
 
+
+                <section className={`flex flex-col justify-evenly items-center h-full px-4 w-100`}>
+                    <div className={`self-center px-1 py-2`}>
+                        <section className={`grid grid-rows-1 grid-cols-5 items-center gap-0 lg:gap-1`}>
+                            <img src={"/asset/svg/image-removebg-preview.svg"}/>
+                            <img src={"/asset/svg/Thelogo.svg"}/>
+                            <img src={"/asset/svg/TechCrunchlogo.svg"}/>
+                            <div className="divide-y h-10 text-black "></div>
+                            <img src={"/asset/svg/Pressreviews.svg"}/>
+                        </section>
+                    </div>
+
+                    <div className={`drop-shadow-lg rounded-lg self-center px-8 pt-8 mt-6 bg-gray-100 ${classes.card}  flex flex-col justify-start items-center`}>
+                        <div className={`m-6 text-l-blue text-center `}>
+                            <h2 className={`capitalize font-cab-extra-bold text-base md:text-3xl tracking-widest`}>Also Available on the Web</h2>
+                            <p className={`mt-3 mx-2 text-xs px-2 font-cab-medium font-medium`}>
+                                Increase your bread & butter on the app or on the web.The Ardilla app <br/> services are also available on the web.
+                            </p>
+                        </div>
+                        <img src={"/asset/svg/headersvg.svg"} alt={""} className={`mt-3`}/>
+
+                    </div>
+                </section>
+
+
+                <section className={`flex flex-col justify-evenly items-center h-full px-4 bg-black w-100 `}>
+                    <div className={`self-center text-center`}>
+                        <h3 className={`text-white tracking-wider capitalize font-cab-extra-bold text-3xl md:text-5xl lg:text-7xl font-bold  `}>
+                            Traction
+                        </h3>
+                        <h5 className={`font-cab-medium sm:text-sm md:text-base text-white mt-2`}>Our products and investments grossed 1.1 billion in 2022</h5>
+                    </div>
+
+                    <div className={`${classes.traction} relative`}>
+                        <div className={`${classes.traction_box} py-8 px-8 flex flex-col md:flex-row justify-center gap-3`}>
+                            <div>
+                                <TractionLeftCard containerColor={`bg-green`} className={classes.box1} title={`Investment in `} blockContent={`2022`} mainContent={`100 M`} code={<span>&#8358;</span>}/>
+                            </div>
+                            <div>
+                                <TractionRightCard containerColor={`bg-purple`} isTrue={true} className={classes.box2} title={`Risk `} blockContent={`Management`} mainContent={`Risk`} code={<span className={`mr-2`}>&#37;</span>}/>
+                            </div>
+                            <div>
+                                <TractionRightCard containerColor={`bg-yellow`} className={classes.box3} title={`Investment in `} blockContent={`paid back`} mainContent={`100 M`} code={<span>&#8358;</span>}/>
+                            </div>
+                        </div>
+
+                        <div className={"absolute top-50  lg:left-5 xl:left-20 "}>
+                            <img src={"/asset/svg/footer-frame.svg"} alt={""} />
+                        </div>
+                    </div>
+                </section>
+                <Footer/>
             </section>
 
 

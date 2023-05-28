@@ -22,7 +22,12 @@ module.exports = {
         "hover-btn":"rgba(136, 7, 247, 0.17)",
         "box":"#29014B",
         "hover-box":"#43027E",
-        "paper":"#F3F4F6"
+        "paper":"#F3F4F6",
+        "traction1":"#D2FFDE",
+        "traction-text":"#2A332C",
+        "green":"#33593D",
+        "purple":"#35298A",
+        "yellow":"#9F9704"
 
       },
       fontFamily:{
