@@ -7,4 +7,12 @@
       
     }*/
   }
+
+  .box {
+    background-image: url("../../../public/asset/images/bg.png");
+
+    &._wrapper_absolute {
+      height: max-content !important;
+    }
+  }
 }

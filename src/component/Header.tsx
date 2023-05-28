@@ -1,8 +1,8 @@
-import {FC} from "react";
+import {FC, memo} from "react";
 import {CreateActionButton} from "./CreateActionButton";
 import {AiOutlineCaretDown} from "react-icons/ai"
 
-export const Header:FC = () => {
+const HeaderLayout:FC = () => {
     return (
         <nav className={'w-100 font-cab-regular bg-header-blue text-center py-3 align-middle flex flex-row items-center'}>
             <div className={"basis-3/3 md:basis-2/3"}>
@@ -34,3 +34,5 @@ export const Header:FC = () => {
         </nav>
     )
 }
+
+export const Header = memo(HeaderLayout)
