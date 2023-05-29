@@ -1,0 +1,19 @@
+// the cal-component
+.select {
+  appearance: textfield !important;
+}
+
+
+// cal result
+
+.result {
+  height:651px;
+
+  @media screen and (max-width: 640px) {
+    height:400px;
+  }
+
+  @media screen and (max-height: 600px) {
+    height:500px;
+  }
+}

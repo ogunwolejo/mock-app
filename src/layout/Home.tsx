@@ -6,22 +6,24 @@ import Product from "../component/products/Product";
 import {Box} from "../component/box/Box";
 import {TractionLeftCard, TractionRightCard} from "../component/traction/TrackionCards";
 import {Footer} from "../component/footer/Footer";
+import {useNavigate} from "react-router-dom";
 
 
 const HomeLayout:FC = () => {
+    const navigate = useNavigate()
     return (
         <Fragment>
             <section className={`${classes.header_section} h-screen w-100 `}>
                 <Header/>
                 <div  className={`text-center`}>
                     <h1 className={`mt-8  p-6 font-cab-extra-bold  text-4xl md:text-6xl lg:text-8xl leading-10  bg-clip-text bg-gradient-to-r from-gradientFrom to-gradientTo text-transparent`}>Your Access To More</h1>
-                    <h3 className={"mx-3 mt-4 text-sm md:text-base text-white font-cab-medium leading-8"}>Ardilla helps you save and invest in achieving your financial goals, we have the most flexible and seamless way to <br/> grow your funds.</h3>
+                    <h3 className={"mx-3 mt-2 text-sm md:text-base text-white font-cab-medium leading-8"}>Ardilla helps you save and invest in achieving your financial goals, we have the most flexible and seamless way to <br/> grow your funds.</h3>
                 </div>
-                <div className={"mt-6 flex flex-row justify-center"}>
-                    <CreateActionButton clickHandler={() => null} label={"Get Started"} clName={"font-cab-medium text-l-blue justify-center bg-white w-36 h-8 md:w-40 md:h-14"}/>
+                <div className={"mt-3 flex flex-row justify-center"}>
+                    <CreateActionButton clickHandler={() => navigate("/calculator")} label={"Get Started"} clName={"font-cab-medium text-l-blue justify-center bg-white w-36 h-8 md:w-40 md:h-14"}/>
                 </div>
                 <div className={"relative"}>
-                    <img id={classes.header_section_image} src={"/asset/svg/phone.svg"} className={"bottom-0"} alt={"phone-svg"} />
+                    <img id={classes.header_section_image} src={"/asset/svg/phone.svg"} className={"bottom-0 xl:ml-72 2xl:ml-96 "} alt={"phone-svg"} />
                     <Product/>
                 </div>
 

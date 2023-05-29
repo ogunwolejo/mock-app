@@ -1,5 +1,6 @@
 import {Routes, Route} from "react-router-dom";
 import {ExoticComponent, FC, lazy, Suspense} from "react"
+import CalculatorLayout from "./layout/Calculator";
 
 const HomeLayoutOnLazy:ExoticComponent = lazy(() => import("./layout/Home"))
 
@@ -7,6 +8,7 @@ const Router:FC = () => {
     return (
         <Routes>
             <Route index element={<SuspenseComponent Component={HomeLayoutOnLazy}/>}/>
+            <Route path={"/calculator"} element={<CalculatorLayout/>}/>
         </Routes>
     )
 }
