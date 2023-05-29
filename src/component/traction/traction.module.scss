@@ -21,6 +21,11 @@
     height: 350px;
     width: 300px;
   }
+
+  @media screen and (min-width:1024px) and (max-width: 1440px) {
+    height: 350px;
+    width: 300px;
+  }
 }
 
 .traction_left {

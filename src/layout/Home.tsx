@@ -1,4 +1,4 @@
-import {FC, Fragment} from "react";
+import {FC, Fragment, useEffect, useRef} from "react";
 import {Header} from "../component/Header";
 import classes from "./styles/home.module.scss";
 import {CreateActionButton} from "../component/CreateActionButton";
@@ -11,6 +11,28 @@ import {useNavigate} from "react-router-dom";
 
 const HomeLayout:FC = () => {
     const navigate = useNavigate()
+    const divRef = useRef<HTMLDivElement>(null)
+
+    const counter = (e:any) => {
+        return
+        // @ts-ignore
+        let children = divRef.current.childNodes
+        children.forEach(e => {
+            // @ts-ignore
+            let content = e.lastChild.textContent;
+            //console.log(content, typeof content)
+            // @ts-ignore
+            if(content === riskRef.current.textContent) {
+                console.log(1)
+            }
+
+        })
+
+
+
+    }
+
+
     return (
         <Fragment>
             <section className={`${classes.header_section} h-screen w-100 `}>
@@ -40,10 +62,10 @@ const HomeLayout:FC = () => {
                 </div>
 
                 {/** working on theses */}
-                 <div className={`bg-card  py-6 px-2`}>
-                    <div className={`py-8 px-0 container my-3`}>
-                        <h3 className={`text-center w-5/6 font-cab-extra-bold text-3xl md:text-5xl lg:text-7xl pt-5  text-l-blue`}>
-                            Unlimited Investment <br/> Opportunities
+                 <div className={`bg-card  py-6 px-2 h-full`}>
+                    <div className={`py-8 px-0  my-3 flex flex-col justify-center items-start`}>
+                        <h3 className={`text-left  w-3/5 bg-red-400 font-cab-extra-bold text-3xl md:text-5xl lg:text-7xl pt-5  text-l-blue`}>
+                            Unlimited Investment Opportunities
                         </h3>
                     </div>
                  </div>
@@ -101,7 +123,7 @@ const HomeLayout:FC = () => {
                 </section>
 
 
-                <section className={`flex flex-col justify-evenly items-center h-full px-4 bg-black w-100 `}>
+                <section className={`flex flex-col justify-evenly items-center h-full px-4 bg-black w-100 `} /*onMouseOver={() => console.log(1)}*/ onPointerOver={(e:any) => counter(e)}>
                     <div className={`self-center text-center`}>
                         <h3 className={`text-white tracking-wider capitalize font-cab-extra-bold text-3xl md:text-5xl lg:text-7xl font-bold  `}>
                             Traction
@@ -109,17 +131,11 @@ const HomeLayout:FC = () => {
                         <h5 className={`font-cab-medium sm:text-sm md:text-base text-white mt-2`}>Our products and investments grossed 1.1 billion in 2022</h5>
                     </div>
 
-                    <div className={`${classes.traction} relative`}>
-                        <div className={`${classes.traction_box} py-8 px-8 flex flex-col md:flex-row justify-center gap-3`}>
-                            <div>
-                                <TractionLeftCard containerColor={`bg-green`} className={classes.box1} title={`Investment in `} blockContent={`2022`} mainContent={`100 M`} code={<span>&#8358;</span>}/>
-                            </div>
-                            <div>
-                                <TractionRightCard containerColor={`bg-purple`} isTrue={true} className={classes.box2} title={`Risk `} blockContent={`Management`} mainContent={`Risk`} code={<span className={`mr-2`}>&#37;</span>}/>
-                            </div>
-                            <div>
-                                <TractionRightCard containerColor={`bg-yellow`} className={classes.box3} title={`Investment in `} blockContent={`paid back`} mainContent={`100 M`} code={<span>&#8358;</span>}/>
-                            </div>
+                    <div className={`${classes.traction} relative`} >
+                        <div className={`${classes.traction_box} py-8 px-8 flex flex-col md:flex-row justify-center gap-3`} ref={divRef}>
+                            <TractionLeftCard dataValue={1.1} containerColor={`bg-green`} className={classes.box1} title={`Investment in `} blockContent={`2022`} mainContent={`100`} code={<span>&#8358;</span>}/>
+                            <TractionRightCard  dataValue={0} containerColor={`bg-purple`} isTrue={true} className={classes.box2} title={`Risk `} blockContent={`Management`} mainContent={`Risk`} code={<span className={`mr-2`}>&#37;</span>}/>
+                            <TractionRightCard dataValue={1.1} containerColor={`bg-yellow`} className={classes.box3} title={`Investment in `} blockContent={`paid back`} mainContent={`100`} code={<span>&#8358;</span>}/>
                         </div>
 
                         <div className={"absolute top-50  lg:left-5 xl:left-20 "}>
